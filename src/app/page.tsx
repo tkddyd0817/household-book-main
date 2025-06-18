@@ -9,6 +9,7 @@ import DataManager from '@/components/DataManager';
 import TransactionForm from '@/components/TransactionForm';
 import TransactionList from '@/components/TransactionList';
 
+
 export default function Home() {
   const dispatch = useDispatch();
   const { transactions, balance } = useSelector((state: RootState) => state.finance);
@@ -32,13 +33,23 @@ export default function Home() {
     }
   };
 
+  const totalIncome = transactions.filter(t => t.type === "income").reduce((sum, t) => sum + t.amount, 0);
+const totalExpense = transactions.filter(t => t.type === "expense").reduce((sum, t) => sum + t.amount, 0);
+//   const totalIncome = transactions
+//   .filter(t => t.type === 'income')
+//   .reduce((sum, t) => sum + t.amount, 0);
+
+// const totalExpense = transactions
+//   .filter(t => t.type === 'expense')
+//   .reduce((sum, t) => sum + t.amount, 0);
+//추후에 삭제예정
 
   return (
     <main className="min-h-screen p-8 bg-gray-100">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-8 text-center">가계부</h1>
         
-        <BalanceCard balance={balance} />
+       <BalanceCard balance={balance} income={totalIncome} expense={totalExpense} />
         <DataManager transactions={transactions} balance={balance} />
         <TransactionForm onSubmit={handleAddTransaction} />
         <TransactionList
@@ -46,6 +57,7 @@ export default function Home() {
           onEdit={handleUpdateTransaction}
           onDelete={handleDeleteTransaction}
         />
+       
       </div>
     </main>
   );
