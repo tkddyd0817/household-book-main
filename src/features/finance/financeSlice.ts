@@ -45,29 +45,42 @@ const loadState = (): FinanceState => {
 const initialState: FinanceState = loadState();
 
 const financeSlice = createSlice({
-    name:"finance",
-    initialState,
-    reducers:{
-        addTransaction:(state,action:PayloadAction<Transaction>)=>{
-            state.transactions.push(action.payload);
-            state.balance+=action.payload.type === "income"
-            ?action.payload.amount
-            :-action.payload.amount;
-        },
-        deleteTransaction:(state, action:PayloadAction<string>)=>{
-            const transaction = state.transactions.find(t=>t.id===action.payload);
-            if(transaction) {
-                state.balance -= transaction.type === "income"
-                ?transaction.amount
-                :-transaction.amount;
-                state.transactions = state.transactions.filter(t=>t.id !== action.payload);
-            
-            }
-        }
+  name: "finance",
+  initialState,
+  reducers: {
+    addTransaction: (state, action: PayloadAction<Transaction>) => {
+      state.transactions.push(action.payload);
+      state.balance += action.payload.type === "income"
+        ? action.payload.amount
+        : -action.payload.amount;
+    },
+    deleteTransaction: (state, action: PayloadAction<string>) => {
+      const transaction = state.transactions.find(t => t.id === action.payload);
+      if (transaction) {
+        state.balance -= transaction.type === "income"
+          ? transaction.amount
+          : -transaction.amount;
+        state.transactions = state.transactions.filter(t => t.id !== action.payload);
+      }
+    },
+    
+    updateTransaction: (state, action: PayloadAction<Transaction>) => {
+      const index = state.transactions.findIndex(t => t.id === action.payload.id);
+      if (index !== -1) {
+        const oldTransaction = state.transactions[index];
+        state.balance -= oldTransaction.type === "income"
+          ? oldTransaction.amount
+          : -oldTransaction.amount;
+        state.transactions[index] = action.payload;
+        state.balance += action.payload.type === "income"
+          ? action.payload.amount
+          : -action.payload.amount;
+      }
     }
-})
+  }
+});
 
-export const  {addTransaction,deleteTransaction} = financeSlice.actions;
-export  const financeReducer = financeSlice.reducer;
+export const { addTransaction, deleteTransaction, updateTransaction } = financeSlice.actions;
+export const financeReducer = financeSlice.reducer;
 
 

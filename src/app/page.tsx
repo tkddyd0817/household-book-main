@@ -2,7 +2,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addTransaction, Transaction } from '@/features/finance/financeSlice';
+import { addTransaction, updateTransaction, deleteTransaction, Transaction } from '@/features/finance/financeSlice';
 import { RootState } from '@/store/store';
 import BalanceCard from '@/components/BalanceCard';
 import DataManager from '@/components/DataManager';
@@ -20,6 +20,19 @@ export default function Home() {
     }));
   };
 
+ // **수정 함수**
+  const handleUpdateTransaction = (transaction: Transaction) => {
+    dispatch(updateTransaction(transaction));
+  };
+
+  // **삭제 함수**
+  const handleDeleteTransaction = (id: string) => {
+    if (confirm('정말로 삭제하시겠습니까?')) {
+      dispatch(deleteTransaction(id));
+    }
+  };
+
+
   return (
     <main className="min-h-screen p-8 bg-gray-100">
       <div className="max-w-4xl mx-auto">
@@ -28,7 +41,11 @@ export default function Home() {
         <BalanceCard balance={balance} />
         <DataManager transactions={transactions} balance={balance} />
         <TransactionForm onSubmit={handleAddTransaction} />
-        <TransactionList transactions={transactions} />
+        <TransactionList
+          transactions={transactions}
+          onEdit={handleUpdateTransaction}
+          onDelete={handleDeleteTransaction}
+        />
       </div>
     </main>
   );
