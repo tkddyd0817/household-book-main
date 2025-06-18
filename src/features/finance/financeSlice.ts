@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-
 export interface Transaction {
     id:string;
     date:string;
@@ -15,9 +14,16 @@ interface FinanceState {
     balance:number;
 }
 
-
-// localStorage에서 데이터 불러오기
+// localStorage에서 데이터 불러오기 (클라이언트 사이드에서만)
 const loadState = (): FinanceState => {
+  // 서버 사이드에서는 빈 상태 반환
+  if (typeof window === 'undefined') {
+    return {
+      transactions: [],
+      balance: 0,
+    };
+  }
+
   try {
     const serializedState = localStorage.getItem('financeState');
     if (serializedState === null) {
@@ -37,7 +43,6 @@ const loadState = (): FinanceState => {
 };
 
 const initialState: FinanceState = loadState();
-
 
 const financeSlice = createSlice({
     name:"finance",
@@ -62,6 +67,7 @@ const financeSlice = createSlice({
     }
 })
 
-
 export const  {addTransaction,deleteTransaction} = financeSlice.actions;
-export  const financeReducer =financeSlice.reducer;
+export  const financeReducer = financeSlice.reducer;
+
+
