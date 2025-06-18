@@ -7,6 +7,7 @@ interface BalanceCardProps {
 }
 
 export default function BalanceCard({ balance, income, expense }: BalanceCardProps) {
+  
   return (
     <div className="bg-white rounded-lg items-center shadow-md p-6 mb-8">
       <h2 className="text-2xl font-semibold mb-4">현재 잔액</h2>

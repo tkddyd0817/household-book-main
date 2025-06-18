@@ -1,0 +1,16 @@
+{
+  "balance": "現在の残高",
+  "income": "収入",
+  "expense": "支出",
+  "add": "追加",
+  "edit": "編集",
+  "delete": "削除",
+  "transaction_history": "取引履歴",
+  "category": "カテゴリ",
+  "description": "説明",
+  "amount": "金額",
+  "date": "日付",
+  "type": "種類",
+  "save": "保存",
+  "cancel": "キャンセル"
+}

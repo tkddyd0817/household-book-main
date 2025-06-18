@@ -1,0 +1,16 @@
+{
+  "balance": "Current Balance",
+  "income": "Income",
+  "expense": "Expense",
+  "add": "Add",
+  "edit": "Edit",
+  "delete": "Delete",
+  "transaction_history": "Transaction History",
+  "category": "Category",
+  "description": "Description",
+  "amount": "Amount",
+  "date": "Date",
+  "type": "Type",
+  "save": "Save",
+  "cancel": "Cancel"
+}

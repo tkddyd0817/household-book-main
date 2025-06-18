@@ -1,0 +1,16 @@
+{
+  "balance": "Solde actuel",
+  "income": "Revenu",
+  "expense": "Dépense",
+  "add": "Ajouter",
+  "edit": "Modifier",
+  "delete": "Supprimer",
+  "transaction_history": "Historique des transactions",
+  "category": "Catégorie",
+  "description": "Description",
+  "amount": "Montant",
+  "date": "Date",
+  "type": "Type",
+  "save": "Enregistrer",
+  "cancel": "Annuler"
+}

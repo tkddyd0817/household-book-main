@@ -1,0 +1,16 @@
+{
+  "balance": "Saldo actual",
+  "income": "Ingreso",
+  "expense": "Gasto",
+  "add": "Agregar",
+  "edit": "Editar",
+  "delete": "Eliminar",
+  "transaction_history": "Historial de transacciones",
+  "category": "Categoría",
+  "description": "Descripción",
+  "amount": "Cantidad",
+  "date": "Fecha",
+  "type": "Tipo",
+  "save": "Guardar",
+  "cancel": "Cancelar"
+}

@@ -1,0 +1,16 @@
+{
+  "balance": "현재 잔액",
+  "income": "수입",
+  "expense": "지출",
+  "add": "추가",
+  "edit": "수정",
+  "delete": "삭제",
+  "transaction_history": "거래 내역",
+  "category": "카테고리",
+  "description": "설명",
+  "amount": "금액",
+  "date": "날짜",
+  "type": "유형",
+  "save": "저장",
+  "cancel": "취소"
+}
