@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Transaction } from "@/features/finance/financeSlice";
+import ConfirmModal from "@/components/ConfirmModal";
 
 interface TransactionItemProps {
   transaction: Transaction;
@@ -12,8 +13,23 @@ export default function TransactionItem({
   onEdit,
   onDelete,
 }: TransactionItemProps) {
+  const [showModal, setShowModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<Transaction>(transaction);
+
+const handleDelete = () => {
+    setShowModal(true);
+  };
+
+  const handleConfirmDelete = () => {
+    onDelete(transaction.id);
+    setShowModal(false);
+  };
+
+  const handleCancelDelete = () => {
+    setShowModal(false);
+  };
+
 
   const handleSave = () => {
     onEdit(formData);
@@ -121,12 +137,20 @@ export default function TransactionItem({
             ✏️
           </button>
           <button
-            onClick={() => onDelete(transaction.id)}
+          onClick={handleDelete}
+            // onClick={() => onDelete(transaction.id)}
             className="text-red-500 hover:text-red-700 text-sm p-1"
             title="삭제"
           >
             🗑️
           </button>
+          <ConfirmModal
+        open={showModal}
+        title="삭제 확인"
+        message="정말로 이 내역을 삭제하시겠습니까?"
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
         </div>
       </div>
     </div>

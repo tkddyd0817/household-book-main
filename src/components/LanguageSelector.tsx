@@ -32,32 +32,3 @@ export default function LanguageSelector() {
   );
 }
 
-
-// import { useRouter } from 'next/router';
-
-// const LANGUAGES = [
-//   { code: 'ko', label: '한국어' },
-//   { code: 'en', label: 'English' },
-//   { code: 'ja', label: '日本語' },
-//   { code: 'fr', label: 'Français' },
-//   { code: 'es', label: 'Español' },
-// ];
-
-// export default function LanguageSelector() {
-//   const router = useRouter();
-
-//   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-//     const locale = e.target.value;
-//     router.push(router.pathname, router.asPath, { locale });
-//   };
-
-//   return (
-//     <section className="mb-4">
-//       <select onChange={handleChange} value={router.locale} className="border rounded px-2 py-1">
-//         {LANGUAGES.map(lang => (
-//           <option key={lang.code} value={lang.code}>{lang.label}</option>
-//         ))}
-//       </select>
-//     </section>
-//   );
-// }

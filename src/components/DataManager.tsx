@@ -58,10 +58,12 @@ export default function DataManager({ transactions, balance }: DataManagerProps)
           onClick={exportData}
           className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
         >
-          데이터 내보내기 (JSON)
+          가계부 출력하기
+          {/* 데이터 내보내기 (JSON) */}
         </button>
         <label className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
-          데이터 가져오기 (JSON)
+          {/* 데이터 가져오기 (JSON) */}
+          가계부 불러오기
           <input
             type="file"
             accept=".json"
