@@ -1,6 +1,6 @@
 "use client";
 
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import {
   addTransaction,
   updateTransaction,
@@ -14,6 +14,9 @@ import TransactionForm from "@/components/TransactionForm";
 import TransactionList from "@/components/TransactionList";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setAll } from "@/features/finance/financeSlice"; 
 import DateFilter from "@/components/DateFilter";
 
 
@@ -25,6 +28,17 @@ export default function Home() {
 
 const [year, setYear] = useState(new Date().getFullYear());
 const [month, setMonth] = useState(new Date().getMonth() + 1);
+
+
+useEffect(() => {
+    if (typeof window !== "undefined") {
+      const serializedState = localStorage.getItem("financeState");
+      if (serializedState) {
+        const state = JSON.parse(serializedState);
+        dispatch(setAll(state)); // 전체 상태를 store에 반영
+      }
+    }
+  }, [dispatch]);
 
   const handleAddTransaction = (transactionData: Omit<Transaction, "id">) => {
     dispatch(

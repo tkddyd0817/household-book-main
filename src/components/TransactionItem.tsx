@@ -30,7 +30,6 @@ const handleDelete = () => {
     setShowModal(false);
   };
 
-
   const handleSave = () => {
     onEdit(formData);
     setIsEditing(false);
@@ -121,14 +120,26 @@ const handleDelete = () => {
           <p className="text-sm text-gray-600">{transaction.description}</p>
         </div>
         <div className="flex items-center gap-2">
-          <p
+         <p className="text-sm text-gray-500">
+  {new Date(transaction.date).toLocaleDateString('ko-KR')}
+</p>
+<p
+  className={`font-bold ${
+    transaction.type === "income" ? "text-green-600" : "text-red-600"
+  }`}
+>
+  {transaction.type === "income" ? "+" : "-"}
+  {transaction.amount.toLocaleString('ko-KR')}원
+</p>
+
+          {/* <p
             className={`font-bold ${
               transaction.type === "income" ? "text-green-600" : "text-red-600"
             }`}
           >
             {transaction.type === "income" ? "+" : "-"}
             {transaction.amount.toLocaleString()}원
-          </p>
+          </p> */}
           <button
             onClick={() => setIsEditing(true)}
             className="text-blue-500 hover:text-blue-700 text-sm p-1"

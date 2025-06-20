@@ -1,48 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Transaction {
-    id:string;
-    date:string;
-    type:"income"|"expense";
-    category:string;
-    amount:number;
-    description:string;
+  id: string;
+  date: string;
+  type: "income" | "expense";
+  category: string;
+  amount: number;
+  description: string;
 }
 
 interface FinanceState {
-    transactions:Transaction[];
-    balance:number;
+  transactions: Transaction[];
+  balance: number;
 }
 
-// localStorage에서 데이터 불러오기 (클라이언트 사이드에서만)
-const loadState = (): FinanceState => {
-  // 서버 사이드에서는 빈 상태 반환
-  if (typeof window === 'undefined') {
-    return {
-      transactions: [],
-      balance: 0,
-    };
-  }
-
-  try {
-    const serializedState = localStorage.getItem('financeState');
-    if (serializedState === null) {
-      return {
-        transactions: [],
-        balance: 0,
-      };
-    }
-    return JSON.parse(serializedState);
-  } catch (err) {
-     console.error(err);
-    return {
-      transactions: [],
-      balance: 0,
-    };
-  }
+const initialState: FinanceState = {
+  transactions: [],
+  balance: 0,
 };
-
-const initialState: FinanceState = loadState();
 
 const financeSlice = createSlice({
   name: "finance",
@@ -63,7 +38,6 @@ const financeSlice = createSlice({
         state.transactions = state.transactions.filter(t => t.id !== action.payload);
       }
     },
-    
     updateTransaction: (state, action: PayloadAction<Transaction>) => {
       const index = state.transactions.findIndex(t => t.id === action.payload.id);
       if (index !== -1) {
@@ -76,11 +50,18 @@ const financeSlice = createSlice({
           ? action.payload.amount
           : -action.payload.amount;
       }
+    },
+  
+    setAll: (state: FinanceState, action: PayloadAction<FinanceState>) => {
+      state.transactions = action.payload.transactions;
+      state.balance = action.payload.balance;
     }
   }
 });
 
-export const { addTransaction, deleteTransaction, updateTransaction } = financeSlice.actions;
+export const { addTransaction, deleteTransaction, updateTransaction, setAll } = financeSlice.actions;
 export const financeReducer = financeSlice.reducer;
+
+
 
 
