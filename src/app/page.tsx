@@ -9,16 +9,22 @@ import {
 } from "@/features/finance/financeSlice";
 import { RootState } from "@/store/store";
 import BalanceCard from "@/components/BalanceCard";
-import DataManager from "@/components/DataManager";
+// import DataManager from "@/components/DataManager";
 import TransactionForm from "@/components/TransactionForm";
 import TransactionList from "@/components/TransactionList";
 import LanguageSelector from "@/components/LanguageSelector";
+import { useState } from "react";
+import DateFilter from "@/components/DateFilter";
+
 
 export default function Home() {
   const dispatch = useDispatch();
   const { transactions, balance } = useSelector(
     (state: RootState) => state.finance
   );
+
+const [year, setYear] = useState(new Date().getFullYear());
+const [month, setMonth] = useState(new Date().getMonth() + 1);
 
   const handleAddTransaction = (transactionData: Omit<Transaction, "id">) => {
     dispatch(
@@ -39,27 +45,40 @@ export default function Home() {
     dispatch(deleteTransaction(id));
   };
 
-  const totalIncome = transactions
+   const filteredTransactions = transactions.filter((t) => {
+    const date = new Date(t.date);
+    return date.getFullYear() === year && date.getMonth() + 1 === month;
+  });
+  const totalIncome = filteredTransactions
     .filter((t) => t.type === "income")
     .reduce((sum, t) => sum + t.amount, 0);
-  const totalExpense = transactions
+  const totalExpense = filteredTransactions
     .filter((t) => t.type === "expense")
     .reduce((sum, t) => sum + t.amount, 0);
+
 
   return (
     <main className="min-h-screen p-8 bg-gray-100">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-8 text-center">가계부</h1>
         <LanguageSelector />
+      <DateFilter
+  year={year}
+  month={month}
+  onYearMonthChange={(y, m) => {
+    setYear(y);
+    setMonth(m);
+  }}
+/>
         <BalanceCard
           balance={balance}
           income={totalIncome}
           expense={totalExpense}
         />
-        <DataManager transactions={transactions} balance={balance} />
+        {/* <DataManager transactions={transactions} balance={balance} /> */}
         <TransactionForm onSubmit={handleAddTransaction} />
         <TransactionList
-          transactions={transactions}
+          transactions={filteredTransactions}
           onEdit={handleUpdateTransaction}
           onDelete={handleDeleteTransaction}
         />
@@ -67,3 +86,5 @@ export default function Home() {
     </main>
   );
 }
+
+
