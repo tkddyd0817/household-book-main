@@ -1,4 +1,5 @@
-// src/i18n.ts
+// // src/i18n.ts
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
@@ -9,21 +10,51 @@ import fr from '../public/locales/fr/common.json';
 import es from '../public/locales/es/common.json';
 
 if (!i18n.isInitialized) {
-    i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      ko: { common: ko },
-      en: { common: en },
-      ja: { common: ja },
-      fr: { common: fr },
-      es: { common: es },
-    },
-    lng: 'ko', // 강제 고정
-    fallbackLng: 'ko',
-    interpolation: { escapeValue: false },
-    // detection: { ... }  // 이 옵션이 있다면 잠시 주석처리
-  });
+  i18n
+    .use(initReactI18next)
+    .init({
+      resources: {
+        ko: { common: ko },
+        en: { common: en },
+        ja: { common: ja },
+        fr: { common: fr },
+        es: { common: es },
+      },
+      lng: 'ko', // 강제 고정
+      fallbackLng: 'ko',
+      interpolation: { escapeValue: false },
+      // detection: { ... }  // 이 옵션이 있다면 잠시 주석처리
+    });
+} // ← 이 부분이 꼭 필요합니다!
+
+export default i18n;
+
+// // src/i18n.ts
+// import i18n from 'i18next';
+// import { initReactI18next } from 'react-i18next';
+
+// import ko from '../public/locales/ko/common.json';
+// import en from '../public/locales/en/common.json';
+// import ja from '../public/locales/ja/common.json';
+// import fr from '../public/locales/fr/common.json';
+// import es from '../public/locales/es/common.json';
+
+// if (!i18n.isInitialized) {
+//     i18n
+//   .use(initReactI18next)
+//   .init({
+//     resources: {
+//       ko: { common: ko },
+//       en: { common: en },
+//       ja: { common: ja },
+//       fr: { common: fr },
+//       es: { common: es },
+//     },
+//     lng: 'ko', // 강제 고정
+//     fallbackLng: 'ko',
+//     interpolation: { escapeValue: false },
+//     // detection: { ... }  // 이 옵션이 있다면 잠시 주석처리
+//   });
 //   i18n
 //     .use(initReactI18next)
 //     .init({
@@ -38,9 +69,9 @@ if (!i18n.isInitialized) {
 //       fallbackLng: 'ko',
 //       interpolation: { escapeValue: false },
 //     });
-}
+// }
 
-export default i18n;
+// export default i18n;
 
 // import i18n from 'i18next';
 // import { initReactI18next } from 'react-i18next';
