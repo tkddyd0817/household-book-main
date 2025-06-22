@@ -20,6 +20,7 @@ import { setAll } from "@/features/finance/financeSlice";
 import DateFilter from "@/components/DateFilter";
 import { useTranslation } from "next-i18next";
 import { Transaction } from "@/types/TransactionTypes";
+import HomeSkeleton from "@/components/Skeleton/HomeSkeleton";
 
 export default function Home() {
   const { t } = useTranslation("common");
@@ -27,19 +28,37 @@ export default function Home() {
   const { transactions, balance } = useSelector(
     (state: RootState) => state.finance
   );
+ const [loading, setLoading] = useState(true); // 1. loading 상태 추가
 
+ 
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth() + 1);
 
-  useEffect(() => {
+useEffect(() => {
     if (typeof window !== "undefined") {
       const serializedState = localStorage.getItem("financeState");
       if (serializedState) {
         const state = JSON.parse(serializedState);
         dispatch(setAll(state)); // 전체 상태를 store에 반영
       }
+      setLoading(false); // 데이터 불러온 후 loading false
     }
   }, [dispatch]);
+
+  if (loading) {
+    return <HomeSkeleton />;
+  }
+  
+
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const serializedState = localStorage.getItem("financeState");
+  //     if (serializedState) {
+  //       const state = JSON.parse(serializedState);
+  //       dispatch(setAll(state)); // 전체 상태를 store에 반영
+  //     }
+  //   }
+  // }, [dispatch]);
 
   const handleAddTransaction = (transactionData: Omit<Transaction, "id">) => {
     dispatch(
@@ -70,6 +89,8 @@ export default function Home() {
   const totalExpense = filteredTransactions
     .filter((t) => t.type === "expense")
     .reduce((sum, t) => sum + t.amount, 0);
+
+    
 
   return (
     <main className="min-h-screen p-8 bg-gray-100">
