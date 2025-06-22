@@ -1,6 +1,6 @@
 "use client";
 
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   addTransaction,
   updateTransaction,
@@ -16,23 +16,21 @@ import LanguageSelector from "@/components/LanguageSelector";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setAll } from "@/features/finance/financeSlice"; 
+import { setAll } from "@/features/finance/financeSlice";
 import DateFilter from "@/components/DateFilter";
 import { useTranslation } from "next-i18next";
 
-
 export default function Home() {
-  const { t } = useTranslation("common"); 
+  const { t } = useTranslation("common");
   const dispatch = useDispatch();
   const { transactions, balance } = useSelector(
     (state: RootState) => state.finance
   );
 
-const [year, setYear] = useState(new Date().getFullYear());
-const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [year, setYear] = useState(new Date().getFullYear());
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
 
-
-useEffect(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       const serializedState = localStorage.getItem("financeState");
       if (serializedState) {
@@ -61,7 +59,7 @@ useEffect(() => {
     dispatch(deleteTransaction(id));
   };
 
-   const filteredTransactions = transactions.filter((t) => {
+  const filteredTransactions = transactions.filter((t) => {
     const date = new Date(t.date);
     return date.getFullYear() === year && date.getMonth() + 1 === month;
   });
@@ -72,21 +70,22 @@ useEffect(() => {
     .filter((t) => t.type === "expense")
     .reduce((sum, t) => sum + t.amount, 0);
 
-
   return (
     <main className="min-h-screen p-8 bg-gray-100">
       <div className="max-w-4xl mx-auto">
-         <h1 className="text-3xl font-bold mb-8 text-center">{t("title")}</h1>
-        {/* <h1 className="text-3xl font-bold mb-8 text-center">가계부</h1> */}
-        <LanguageSelector />
-      <DateFilter
-  year={year}
-  month={month}
-  onYearMonthChange={(y, m) => {
-    setYear(y);
-    setMonth(m);
-  }}
-/>
+        <h1 className="text-3xl font-bold mb-8 text-center">{t("title")}</h1>
+        {/* 반응형 필터 영역 */}
+        <div className="flex flex-row items-center gap-2 mb-4">
+          <LanguageSelector />
+          <DateFilter
+            year={year}
+            month={month}
+            onYearMonthChange={(y, m) => {
+              setYear(y);
+              setMonth(m);
+            }}
+          />
+        </div>
         <BalanceCard
           balance={balance}
           income={totalIncome}
@@ -103,5 +102,3 @@ useEffect(() => {
     </main>
   );
 }
-
-

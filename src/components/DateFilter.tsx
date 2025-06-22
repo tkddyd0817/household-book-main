@@ -116,7 +116,8 @@ export default function DateFilter({
         locale={locale}
         todayButton={t("this_month")}
         customInput={
-          <CustomInput className="block w-full rounded-md border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3" />
+          // <CustomInput className="block w-full rounded-md border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3" />
+          <CustomInput className="block w-full rounded border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3 px-2 py-0.5" />
         }
       />
     </div>
