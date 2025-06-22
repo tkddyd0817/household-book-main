@@ -86,7 +86,12 @@ CustomInput.displayName = "CustomInput";
 
 export default function TransactionForm({ onSubmit }: TransactionFormProps) {
   const { t, i18n } = useTranslation("common");
-  const locale = localeMap[i18n.language] || enUS;
+  const [amount, setAmount] = useState(""); // 문자열로 관리
+  const locale =
+  Object.prototype.hasOwnProperty.call(localeMap, i18n.language)
+    ? localeMap[i18n.language as keyof typeof localeMap]
+    : enUS;
+  // const locale = localeMap[i18n.language] || enUS;
   const [formData, setFormData] = useState<Omit<Transaction, "id">>({
     date: new Date().toISOString().split("T")[0],
     type: "expense",
@@ -105,6 +110,7 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
       amount: 0,
       description: "",
     });
+     setAmount(""); // 입력창 비우기!
   };
 
   return (
@@ -192,6 +198,24 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             {t("amount")}
           </label>
           <input
+            type="text" // number가 아니라 text로!
+            inputMode="numeric"
+            pattern="[0-9]*"
+            value={amount}
+            onChange={(e) => {
+              // 숫자만 남기고, 앞의 0은 모두 제거
+              let value = e.target.value.replace(/[^0-9]/g, "");
+              if (value.length > 1) value = value.replace(/^0+/, "");
+              setAmount(value);
+              setFormData({
+                ...formData,
+                amount: value === "" ? 0 : Number(value),
+              });
+            }}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3"
+            placeholder={t("amount_placeholder")}
+          />
+          {/* <input
             type="number"
             value={formData.amount}
             onChange={(e) =>
@@ -199,7 +223,7 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             }
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3"
             placeholder={t("amount_placeholder")}
-          />
+          /> */}
         </div>
         <div className="md:col-span-2">
           <label className="block text-sm font-medium text-gray-700">

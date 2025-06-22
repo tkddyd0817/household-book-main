@@ -9,6 +9,7 @@ export default function HomeSkeleton() {
           <SkeletonBox className="h-10 w-32" />
           <SkeletonBox className="h-10 w-32" />
         </div>
+        {/* <SkeletonBox className="h-32 w-full mb-8" />  추후에 상황에 따라 지울지 살려둘지 결정*/}
         <SkeletonBox className="h-32 w-full mb-8" />
         <SkeletonBox className="h-40 w-full mb-8" />
         <SkeletonBox className="h-64 w-full" />

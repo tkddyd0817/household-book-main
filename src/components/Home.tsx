@@ -5,7 +5,6 @@ import {
   addTransaction,
   updateTransaction,
   deleteTransaction,
-
 } from "@/features/finance/financeSlice";
 import { RootState } from "@/store/store";
 import BalanceCard from "@/components/BalanceCard";
@@ -28,13 +27,12 @@ export default function Home() {
   const { transactions, balance } = useSelector(
     (state: RootState) => state.finance
   );
- const [loading, setLoading] = useState(true); // 1. loading 상태 추가
+  const [loading, setLoading] = useState(true); // 1. loading 상태 추가
 
- 
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth() + 1);
 
-useEffect(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       const serializedState = localStorage.getItem("financeState");
       if (serializedState) {
@@ -48,17 +46,6 @@ useEffect(() => {
   if (loading) {
     return <HomeSkeleton />;
   }
-  
-
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     const serializedState = localStorage.getItem("financeState");
-  //     if (serializedState) {
-  //       const state = JSON.parse(serializedState);
-  //       dispatch(setAll(state)); // 전체 상태를 store에 반영
-  //     }
-  //   }
-  // }, [dispatch]);
 
   const handleAddTransaction = (transactionData: Omit<Transaction, "id">) => {
     dispatch(
@@ -89,8 +76,6 @@ useEffect(() => {
   const totalExpense = filteredTransactions
     .filter((t) => t.type === "expense")
     .reduce((sum, t) => sum + t.amount, 0);
-
-    
 
   return (
     <main className="min-h-screen p-8 bg-gray-100">

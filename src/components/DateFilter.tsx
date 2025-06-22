@@ -93,7 +93,11 @@ export default function DateFilter({
 }: DateFilterProps) {
   const { t, i18n } = useTranslation("common");
   const selectedDate = new Date(year, month - 1);
-  const locale = localeMap[i18n.language] || enUS;
+  // const locale = localeMap[i18n.language] || enUS;
+  const locale =
+  Object.prototype.hasOwnProperty.call(localeMap, i18n.language)
+    ? localeMap[i18n.language as keyof typeof localeMap]
+    : enUS;
 
   const handleChange = (date: Date | null) => {
     if (!date) return;
