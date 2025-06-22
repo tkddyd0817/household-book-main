@@ -58,5 +58,6 @@
   "year_month": "Année/Mois",
   "this_month": "Ce mois-ci",
   "clear": "Effacer",
-  "today": "Aujourd'hui"
+  "today": "Aujourd'hui",
+  "language_placeholder": "Langue"
 }
