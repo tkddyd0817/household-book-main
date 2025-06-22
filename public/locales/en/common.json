@@ -34,7 +34,6 @@
   "form_category_placeholder": "e.g. Food, Transport",
   "form_amount_placeholder": "Enter amount",
   "form_description_placeholder": "Enter a description for the transaction",
-  "year_month": "Year/Month",
   "modal_title_confirm": "Are you sure?",
   "modal_message_confirm": "Please confirm your action.",
   "yes": "Yes",
@@ -50,10 +49,16 @@
   "select_date": "Select date",
   "select_month": "Select month",
   "select_year": "Select year",
-  "currency_unit": "KRW",
+"currency_unit": "$",
   "import_success": "Data imported successfully.",
 "import_error": "Invalid JSON file.",
 "export_success": "Data exported successfully.",
 "file_select": "Select file",
-"title": "Household Book"
+"title": "Household Book",
+"year_month": "Year/Month",
+"this_month": "This month",
+"clear": "Clear",
+"today": "Today"
+
+
 }

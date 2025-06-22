@@ -34,7 +34,6 @@
   "form_category_placeholder": "ej. Comida, Transporte",
   "form_amount_placeholder": "Ingrese la cantidad",
   "form_description_placeholder": "Ingrese una descripción para la transacción",
-  "year_month": "Año/Mes",
   "modal_title_confirm": "¿Está seguro?",
   "modal_message_confirm": "Por favor, confirme su acción.",
   "yes": "Sí",
@@ -50,10 +49,14 @@
   "select_date": "Seleccionar fecha",
   "select_month": "Seleccionar mes",
   "select_year": "Seleccionar año",
-  "currency_unit": "KRW",
+  "currency_unit": "€",
   "import_success": "Datos importados correctamente.",
   "import_error": "Archivo JSON inválido.",
   "export_success": "Datos exportados correctamente.",
   "file_select": "Seleccionar archivo",
-  "title": "Libro de cuentas"
+  "title": "Libro de cuentas",
+  "year_month": "Año/Mes",
+  "this_month": "Este mes",
+  "clear": "Borrar",
+  "today": "Hoy"
 }

@@ -34,7 +34,6 @@
   "form_category_placeholder": "예: 식비, 교통비",
   "form_amount_placeholder": "금액을 입력하세요",
   "form_description_placeholder": "거래에 대한 설명을 입력하세요",
-  "year_month": "연/월",
   "modal_title_confirm": "확인",
   "modal_message_confirm": "이 작업을 진행하시겠습니까?",
   "yes": "예",
@@ -55,5 +54,9 @@
   "import_error": "잘못된 JSON 파일입니다.",
   "export_success": "데이터를 성공적으로 내보냈습니다.",
   "file_select": "파일 선택",
-  "title": "가계부"
+  "title": "가계부",
+  "year_month": "년/월",
+"this_month": "이번달",
+"clear": "삭제",
+"today": "오늘"
 }
