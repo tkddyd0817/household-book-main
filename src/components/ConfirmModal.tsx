@@ -3,14 +3,9 @@
 
 import React from "react";
 import { useTranslation } from "next-i18next";
+import { ConfirmModalProps } from "@/types/ConfirmModalTypes";
 
-interface ConfirmModalProps {
-  open: boolean;
-  title?: string;
-  message: string;
-  onConfirm: () => void;
-  onCancel: () => void;
-}
+
 
 export default function ConfirmModal({
   open,

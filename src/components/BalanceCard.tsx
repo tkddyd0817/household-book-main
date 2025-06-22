@@ -2,12 +2,8 @@
 import { useEffect, useState } from "react";
 import PieChart from "@/components/PieChart";
 import { useTranslation } from "next-i18next";
+import { BalanceCardProps } from "@/types/BalanceCardTypes";
 
-interface BalanceCardProps {
-  balance: number;
-  income: number;
-  expense: number;
-}
 
 export default function BalanceCard({
   balance,

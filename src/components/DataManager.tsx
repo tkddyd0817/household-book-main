@@ -1,14 +1,13 @@
 //언어 변환 적용 완료
 'use client';
 
-import { Transaction } from "@/features/finance/financeSlice";
+
+
+import { DataManagerProps } from "@/types/DataManagerTypes";
 import { useTranslation } from "next-i18next";
 
 
-interface DataManagerProps {
-  transactions: Transaction[];
-  balance: number;
-}
+
 
 export default function DataManager({ transactions, balance }: DataManagerProps) {
   const { t } = useTranslation("common");

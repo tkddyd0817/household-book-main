@@ -6,12 +6,9 @@ import { useTranslation } from "next-i18next";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko, enUS, ja, fr, es } from "date-fns/locale";
 import type { Locale } from "date-fns";
+import { DateFilterProps } from "@/types/DateFilterTypes";
 
-interface DateFilterProps {
-  year: number;
-  month: number;
-  onYearMonthChange: (year: number, month: number) => void;
-}
+
 
 const localeMap: Record<string, Locale> = {
   ko,

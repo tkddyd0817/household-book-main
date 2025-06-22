@@ -4,12 +4,9 @@ import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import ChartDataLabels, { Context } from "chartjs-plugin-datalabels";
 import { useTranslation } from "next-i18next";
+import { PieChartProps } from "@/types/PieChartTypes";
 Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
-interface PieChartProps {
-  income: number;
-  expense: number;
-}
 
 export default function PieChart({ income, expense }: PieChartProps) {
   const { t } = useTranslation("common");

@@ -1,15 +1,12 @@
 //언어변환 적용완료
 import React from "react";
 import { useTranslation } from "next-i18next";
-import { Transaction } from "@/features/finance/financeSlice";
+// import { Transaction } from "@/features/finance/financeSlice";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { ko, enUS, ja, fr, es } from "date-fns/locale";
 import type { Locale } from "date-fns";
-
-interface TransactionFormProps {
-  onSubmit: (transaction: Omit<Transaction, "id">) => void;
-}
+import { Transaction, TransactionFormProps } from "@/types/TransactionTypes";
 
 const localeMap: Record<string, Locale> = {
   ko,
@@ -228,8 +225,3 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
     </form>
   );
 }
-
-
-
-
-

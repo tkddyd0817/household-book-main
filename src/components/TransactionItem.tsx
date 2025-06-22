@@ -2,14 +2,8 @@
 
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
-import { Transaction } from "@/features/finance/financeSlice";
 import ConfirmModal from "@/components/ConfirmModal";
-
-interface TransactionItemProps {
-  transaction: Transaction;
-  onEdit: (transaction: Transaction) => void;
-  onDelete: (id: string) => void;
-}
+import { Transaction, TransactionItemProps } from "@/types/TransactionTypes";
 
 export default function TransactionItem({
   transaction,
@@ -161,4 +155,3 @@ export default function TransactionItem({
     </div>
   );
 }
-

@@ -5,7 +5,7 @@ import {
   addTransaction,
   updateTransaction,
   deleteTransaction,
-  Transaction,
+
 } from "@/features/finance/financeSlice";
 import { RootState } from "@/store/store";
 import BalanceCard from "@/components/BalanceCard";
@@ -19,6 +19,7 @@ import { useDispatch } from "react-redux";
 import { setAll } from "@/features/finance/financeSlice";
 import DateFilter from "@/components/DateFilter";
 import { useTranslation } from "next-i18next";
+import { Transaction } from "@/types/TransactionTypes";
 
 export default function Home() {
   const { t } = useTranslation("common");
