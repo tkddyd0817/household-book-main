@@ -136,9 +136,27 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             todayButton={t("today")}
             placeholderText={t("select_date")}
             customInput={
+              <CustomInput className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3" />
+            }
+            wrapperClassName="w-full"
+          />
+
+          {/* <DatePicker
+            selected={formData.date ? new Date(formData.date) : null}
+            onChange={(date: Date | null) =>
+              setFormData({
+                ...formData,
+                date: date ? date.toISOString().split("T")[0] : "",
+              })
+            }
+            dateFormat="yyyy-MM-dd"
+            locale={locale}
+            todayButton={t("today")}
+            placeholderText={t("select_date")}
+            customInput={
               <CustomInput className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
             }
-          />
+          /> */}
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700">
@@ -152,7 +170,7 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
                 type: e.target.value as "income" | "expense",
               })
             }
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3"
           >
             <option value="expense">{t("expense")}</option>
             <option value="income">{t("income")}</option>
@@ -168,7 +186,7 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             onChange={(e) =>
               setFormData({ ...formData, category: e.target.value })
             }
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3"
             placeholder={t("category_placeholder")}
           />
         </div>
@@ -182,7 +200,7 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             onChange={(e) =>
               setFormData({ ...formData, amount: Number(e.target.value) })
             }
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3"
             placeholder={t("amount_placeholder")}
           />
         </div>
@@ -196,7 +214,7 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             onChange={(e) =>
               setFormData({ ...formData, description: e.target.value })
             }
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3"
             placeholder={t("description_placeholder")}
           />
         </div>
@@ -210,4 +228,8 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
     </form>
   );
 }
+
+
+
+
 
