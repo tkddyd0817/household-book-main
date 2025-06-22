@@ -3,8 +3,7 @@
 import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import ChartDataLabels, { Context } from "chartjs-plugin-datalabels";
-// import { useTranslation } from "react-i18next";
-  import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next";
 
 Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -14,8 +13,8 @@ interface PieChartProps {
 }
 
 export default function PieChart({ income, expense }: PieChartProps) {
- const { t } = useTranslation("common");
- 
+  const { t } = useTranslation("common");
+
   const data = {
     labels: [t("income"), t("expense")],
     datasets: [
@@ -33,29 +32,51 @@ export default function PieChart({ income, expense }: PieChartProps) {
         color: "#fff",
         font: {
           weight: "bold" as const,
-          size: 16,
+          size: 22,
         },
         formatter: (value: number, context: Context) => {
-  const rawData = context.chart.data.datasets[0].data as (number | null)[];
-  const total = rawData.reduce(
-    (sum, v) => (typeof sum === "number" ? sum : 0) + (typeof v === "number" ? v : 0),
-    0
-  ) as number; // 또는 Math.round(...) 사용
-  if (total === 0) return "0%";
-  const percent = Math.round((value / total) * 100);
-  return percent + "%";
-}
+          const rawData = context.chart.data.datasets[0].data as (
+            | number
+            | null
+          )[];
+          const total = rawData.reduce(
+            (sum, v) =>
+              (typeof sum === "number" ? sum : 0) +
+              (typeof v === "number" ? v : 0),
+            0
+          ) as number;
+          if (total === 0) return "0%";
+          const percent = Math.round((value / total) * 100);
+          return percent + "%";
+        },
       },
       legend: {
         display: true,
         position: "top" as const,
+        fullSize: false,
+        labels: {
+          boxWidth: 32,
+          font: {
+            size: 18,
+            weight: "bold" as const,
+          },
+          padding: 24,
+        },
       },
     },
+    // maintainAspectRatio: false, // 이 줄은 주석처리 또는 삭제
   };
 
   return (
-    <div className=" p-6 w-64 mx-auto my-8">
-      <Pie data={data} options={options} plugins={[ChartDataLabels]} />
+    <div className="p-6 w-96 mx-auto my-8">
+      
+      <Pie
+        data={data}
+        options={options}
+        plugins={[ChartDataLabels]}
+        width={400}
+        height={400}
+      />
     </div>
   );
 }
