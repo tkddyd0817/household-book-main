@@ -54,5 +54,6 @@
   "import_success": "データのインポートが完了しました。",
   "import_error": "無効なJSONファイルです。",
   "export_success": "データのエクスポートが完了しました。",
-  "file_select": "ファイルを選択"
+  "file_select": "ファイルを選択",
+  "title": "家計簿"
 }

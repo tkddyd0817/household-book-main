@@ -54,5 +54,6 @@
   "import_success": "Data imported successfully.",
 "import_error": "Invalid JSON file.",
 "export_success": "Data exported successfully.",
-"file_select": "Select file"
+"file_select": "Select file",
+"title": "Household Book"
 }

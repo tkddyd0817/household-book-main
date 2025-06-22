@@ -54,5 +54,6 @@
   "import_success": "데이터를 성공적으로 가져왔습니다.",
   "import_error": "잘못된 JSON 파일입니다.",
   "export_success": "데이터를 성공적으로 내보냈습니다.",
-  "file_select": "파일 선택"
+  "file_select": "파일 선택",
+  "title": "가계부"
 }

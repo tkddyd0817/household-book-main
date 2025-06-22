@@ -1,13 +1,29 @@
-import Home from '@/components/Home'
-import React from 'react'
+//app/page.tsx
+"use client";
 
-function page() {
-  return (
-    <div><Home/></div>
-  )
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function HomeRedirect() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/ko");
+  }, [router]);
+
+  return null;
 }
 
-export default page
+// import Home from '@/components/Home'
+// import React from 'react'
+
+// function page() {
+//   return (
+//     <div><Home/></div>
+//   )
+// }
+
+// export default page
 
 // "use client";
 
@@ -27,9 +43,8 @@ export default page
 // import { useState } from "react";
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
-// import { setAll } from "@/features/finance/financeSlice"; 
+// import { setAll } from "@/features/finance/financeSlice";
 // import DateFilter from "@/components/DateFilter";
-
 
 // export default function Home() {
 //   const dispatch = useDispatch();
@@ -39,7 +54,6 @@ export default page
 
 // const [year, setYear] = useState(new Date().getFullYear());
 // const [month, setMonth] = useState(new Date().getMonth() + 1);
-
 
 // useEffect(() => {
 //     if (typeof window !== "undefined") {
@@ -81,7 +95,6 @@ export default page
 //     .filter((t) => t.type === "expense")
 //     .reduce((sum, t) => sum + t.amount, 0);
 
-
 //   return (
 //     <main className="min-h-screen p-8 bg-gray-100">
 //       <div className="max-w-4xl mx-auto">
@@ -111,5 +124,3 @@ export default page
 //     </main>
 //   );
 // }
-
-

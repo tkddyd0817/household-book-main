@@ -54,5 +54,6 @@
   "import_success": "Datos importados correctamente.",
   "import_error": "Archivo JSON inválido.",
   "export_success": "Datos exportados correctamente.",
-  "file_select": "Seleccionar archivo"
+  "file_select": "Seleccionar archivo",
+  "title": "Libro de cuentas"
 }

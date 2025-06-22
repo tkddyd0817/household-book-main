@@ -18,9 +18,11 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setAll } from "@/features/finance/financeSlice"; 
 import DateFilter from "@/components/DateFilter";
+import { useTranslation } from "next-i18next";
 
 
 export default function Home() {
+  const { t } = useTranslation("common"); 
   const dispatch = useDispatch();
   const { transactions, balance } = useSelector(
     (state: RootState) => state.finance
@@ -74,7 +76,8 @@ useEffect(() => {
   return (
     <main className="min-h-screen p-8 bg-gray-100">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-center">가계부</h1>
+         <h1 className="text-3xl font-bold mb-8 text-center">{t("title")}</h1>
+        {/* <h1 className="text-3xl font-bold mb-8 text-center">가계부</h1> */}
         <LanguageSelector />
       <DateFilter
   year={year}
