@@ -42,7 +42,7 @@ export default function DateFilter({
         {t("year_month")}
       </label>
       <DatePicker
-        id={dateInputId} // 추가!
+        id={dateInputId} 
         selected={selectedDate}
         onChange={handleChange}
         dateFormat="yyyy-MM"

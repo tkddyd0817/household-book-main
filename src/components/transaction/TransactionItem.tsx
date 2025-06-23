@@ -157,7 +157,6 @@ export default function TransactionItem({
           <span
             className={`font-bold ${
               transaction.type === "income" ? "text-green-800" : "text-red-600"
-              // transaction.type === "income" ? "text-green-600" : "text-red-600"
             } whitespace-nowrap flex-shrink-0`}
           >
             {transaction.type === "income" ? "+" : "-"}
