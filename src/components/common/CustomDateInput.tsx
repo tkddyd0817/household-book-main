@@ -1,5 +1,5 @@
 import React from "react";
-import CalendarIcon from "./CalendarIcon";
+import CalendarIcon from "../icons/CalendarIcon";
 
 const CustomDateInput = React.forwardRef<
   HTMLInputElement,

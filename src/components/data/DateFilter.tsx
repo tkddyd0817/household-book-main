@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { ko, enUS, ja, fr, es } from "date-fns/locale";
 import type { Locale } from "date-fns";
 import { DateFilterProps } from "@/types/DateFilterTypes";
-import CustomDateInput from "@/components/CustomDateInput";
+import CustomDateInput from "@/components/common/CustomDateInput";
 
 const localeMap: Record<string, Locale> = {
   ko,

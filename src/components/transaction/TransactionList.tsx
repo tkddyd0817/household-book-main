@@ -1,6 +1,7 @@
 import { useTranslation } from "next-i18next";
-import TransactionItem from "./TransactionItem";
+
 import { TransactionListProps } from "@/types/TransactionTypes";
+import TransactionItem from "@/components/transaction/TransactionItem";
 
 export default function TransactionList({
   transactions,

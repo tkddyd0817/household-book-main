@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
-import ConfirmModal from "@/components/ConfirmModal";
+import ConfirmModal from "@/components/common/ConfirmModal";
 import { Transaction, TransactionItemProps } from "@/types/TransactionTypes";
 import DatePicker from "react-datepicker";
 import { ko, enUS, ja, fr, es } from "date-fns/locale";
-import CustomDateInput from "@/components/CustomDateInput";
+import CustomDateInput from "@/components/common/CustomDateInput";
 
 // locale 매핑
 const localeMap = {
@@ -101,10 +101,10 @@ export default function TransactionItem({
     onEdit(formData);
     setIsEditing(false);
     setFormData({
-    ...formData,
-    amount: 0, // 등록 후 입력창 비우기
-    // 필요하다면 다른 필드도 초기화
-  });
+      ...formData,
+      amount: 0, // 등록 후 입력창 비우기
+      // 필요하다면 다른 필드도 초기화
+    });
   };
   const handleCancel = () => {
     setFormData(transaction);
@@ -143,8 +143,8 @@ export default function TransactionItem({
             //   <CustomInput className="border rounded px-2 py-0.5 w-full" />
             // }
             customInput={
-    <CustomDateInput className="border rounded px-2 py-0.5 w-full" />
-  }
+              <CustomDateInput className="border rounded px-2 py-0.5 w-full" />
+            }
             wrapperClassName="w-full"
           />
           <select
@@ -223,11 +223,13 @@ export default function TransactionItem({
         </div>
         <div className="flex items-center gap-2">
           <span
-    className={`font-bold ${transaction.type === "income" ? "text-green-600" : "text-red-600"} whitespace-nowrap flex-shrink-0`}
-  >
-    {transaction.type === "income" ? "+" : "-"}
-    {formattedAmount} {t("currency_unit")}
-  </span>
+            className={`font-bold ${
+              transaction.type === "income" ? "text-green-600" : "text-red-600"
+            } whitespace-nowrap flex-shrink-0`}
+          >
+            {transaction.type === "income" ? "+" : "-"}
+            {formattedAmount} {t("currency_unit")}
+          </span>
           <button
             onClick={() => setIsEditing(true)}
             className="text-blue-500 hover:text-blue-700 text-sm p-1"
@@ -243,12 +245,12 @@ export default function TransactionItem({
             🗑️
           </button>
           <ConfirmModal
-  open={showModal}
-  title={t("delete")}
-  message={t("delete_confirm")}
-  onConfirmAction={handleConfirmDelete}
-  onCancelAction={handleCancelDelete}
-/>
+            open={showModal}
+            title={t("delete")}
+            message={t("delete_confirm")}
+            onConfirmAction={handleConfirmDelete}
+            onCancelAction={handleCancelDelete}
+          />
           {/* <ConfirmModal
             open={showModal}
             title={t("delete")}

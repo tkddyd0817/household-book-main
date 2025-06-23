@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PieChart from "@/components/PieChart";
+import PieChart from "@/components/chart/PieChart";
 import { useTranslation } from "next-i18next";
 import { BalanceCardProps } from "@/types/BalanceCardTypes";
 

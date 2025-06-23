@@ -8,18 +8,18 @@ import {
 } from "@/features/finance/financeSlice";
 import { RootState } from "@/store/store";
 import BalanceCard from "@/components/BalanceCard";
-import DataManager from "@/components/DataManager";
-import TransactionForm from "@/components/TransactionForm";
-import TransactionList from "@/components/TransactionList";
-import LanguageSelector from "@/components/LanguageSelector";
+import DataManager from "@/components/data/DataManager";
+import TransactionForm from "@/components/transaction/TransactionForm";
+import LanguageSelector from "@/components/common/LanguageSelector";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setAll } from "@/features/finance/financeSlice";
-import DateFilter from "@/components/DateFilter";
+import DateFilter from "@/components/data/DateFilter";
 import { useTranslation } from "next-i18next";
 import { Transaction } from "@/types/TransactionTypes";
 import HomeSkeleton from "@/components/Skeleton/HomeSkeleton";
+import TransactionList from "@/components/transaction/TransactionList";
 
 export default function Home() {
   const { t } = useTranslation("common");
