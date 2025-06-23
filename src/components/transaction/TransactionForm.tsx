@@ -22,6 +22,8 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
     ? localeMap[i18n.language as keyof typeof localeMap]
     : enUS;
 
+  const typeSelectId = "transaction-type-select";
+
   const [formData, setFormData] = useState<Omit<Transaction, "id">>({
     date: new Date().toISOString().split("T")[0],
     type: "expense",
@@ -75,10 +77,14 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor={typeSelectId}
+            className="block text-sm font-medium text-gray-700"
+          >
             {t("type")}
           </label>
           <select
+            id={typeSelectId}
             value={formData.type}
             onChange={(e) =>
               setFormData({

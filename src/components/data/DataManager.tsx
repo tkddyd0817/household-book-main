@@ -57,7 +57,13 @@ export default function DataManager({ transactions, balance }: DataManagerProps)
       <div className="flex gap-4">
         <button
           onClick={exportData}
-          className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+          className="
+    bg-green-800 text-white
+    py-2 px-4 rounded-md
+    hover:bg-green-900
+    focus:outline-none
+    focus"
+          // className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
         >
           {t("export_data")}
         </button>

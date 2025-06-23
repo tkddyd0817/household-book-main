@@ -12,6 +12,7 @@ export default function LanguageSelector() {
   const { t } = useTranslation("common");
   const router = useRouter();
   const pathname = usePathname();
+  const selectId = "language-selector";
 
   // 현재 언어 감지
   const currentLocale = pathname.split("/")[1];
@@ -30,10 +31,14 @@ export default function LanguageSelector() {
 
   return (
     <section className="mb-4">
-      <label className="block text-sm font-medium text-gray-700 mb-1">
+      <label
+        htmlFor={selectId}
+        className="block text-sm font-medium text-gray-700 mb-1"
+      >
         {t("language_placeholder")}
       </label>
       <select
+        id={selectId}
         onChange={handleChange}
         value={selectValue}
         className="border rounded px-2 py-1"

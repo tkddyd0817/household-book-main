@@ -15,9 +15,6 @@ const localeMap: Record<string, Locale> = {
   es,
 };
 
-
-
-
 export default function DateFilter({
   year,
   month,
@@ -34,13 +31,18 @@ export default function DateFilter({
     if (!date) return;
     onYearMonthChange(date.getFullYear(), date.getMonth() + 1);
   };
+  const dateInputId = "date-filter-input";
 
   return (
     <div className="mb-4">
-      <label className="block text-sm font-medium text-gray-700 mb-1">
+      <label
+        htmlFor={dateInputId}
+        className="block text-sm font-medium text-gray-700 mb-1"
+      >
         {t("year_month")}
       </label>
       <DatePicker
+        id={dateInputId} // 추가!
         selected={selectedDate}
         onChange={handleChange}
         dateFormat="yyyy-MM"
@@ -48,7 +50,10 @@ export default function DateFilter({
         locale={locale}
         todayButton={t("this_month")}
         customInput={
-          <CustomDateInput className="block w-full rounded border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3 px-2 py-0.5" />
+          <CustomDateInput
+            id={dateInputId}
+            className="block w-full rounded border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3 px-2 py-0.5"
+          />
         }
       />
     </div>
