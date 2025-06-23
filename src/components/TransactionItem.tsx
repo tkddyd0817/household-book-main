@@ -239,12 +239,19 @@ export default function TransactionItem({
             🗑️
           </button>
           <ConfirmModal
+  open={showModal}
+  title={t("delete")}
+  message={t("delete_confirm")}
+  onConfirmAction={handleConfirmDelete}
+  onCancelAction={handleCancelDelete}
+/>
+          {/* <ConfirmModal
             open={showModal}
             title={t("delete")}
             message={t("delete_confirm")}
             onConfirm={handleConfirmDelete}
             onCancel={handleCancelDelete}
-          />
+          /> */}
         </div>
       </div>
     </div>

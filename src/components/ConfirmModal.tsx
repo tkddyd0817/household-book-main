@@ -4,14 +4,14 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import { ConfirmModalProps } from "@/types/ConfirmModalTypes";
 
-
-
 export default function ConfirmModal({
   open,
   title = "확인",
   message,
-  onConfirm,
-  onCancel,
+  // onConfirm,
+  // onCancel,
+  onConfirmAction,
+  onCancelAction,
 }: ConfirmModalProps) {
   const { t } = useTranslation("common");
   if (!open) return null;
@@ -23,13 +23,15 @@ export default function ConfirmModal({
         <p className="mb-4">{t(message)}</p>
         <div className="flex justify-end gap-2">
           <button
-            onClick={onCancel}
+            onClick={onCancelAction}
+            // onClick={onCancel}
             className="px-4 py-2 rounded bg-green-600  text-white hover:bg-gray-400"
           >
             {t("cancel")}
           </button>
           <button
-            onClick={onConfirm}
+            onClick={onConfirmAction}
+            // onClick={onConfirm}
             className="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700"
           >
             {t("delete")}
@@ -39,4 +41,3 @@ export default function ConfirmModal({
     </div>
   );
 }
-
