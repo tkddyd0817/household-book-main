@@ -1,4 +1,3 @@
-//언어 변환적용완료
 import { useEffect, useState } from "react";
 import PieChart from "@/components/PieChart";
 import { useTranslation } from "next-i18next";

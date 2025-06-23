@@ -1,4 +1,3 @@
-//[locale]/layout.tsx
 "use client";
 
 import { Provider } from "react-redux";
@@ -29,7 +28,6 @@ export default function LocaleLayout({
       "t(balance):",
       i18n.t("balance", { ns: "common" })
     );
-    // console.log('locale:', locale, 'i18n.language:', i18n.language);
   }, [locale]);
 
   return (

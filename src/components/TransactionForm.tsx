@@ -1,7 +1,5 @@
-//언어변환 적용완료
 import React from "react";
 import { useTranslation } from "next-i18next";
-// import { Transaction } from "@/features/finance/financeSlice";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { ko, enUS, ja, fr, es } from "date-fns/locale";
@@ -87,11 +85,10 @@ CustomInput.displayName = "CustomInput";
 export default function TransactionForm({ onSubmit }: TransactionFormProps) {
   const { t, i18n } = useTranslation("common");
   const [amount, setAmount] = useState(""); // 문자열로 관리
-  const locale =
-  Object.prototype.hasOwnProperty.call(localeMap, i18n.language)
+  const locale = Object.prototype.hasOwnProperty.call(localeMap, i18n.language)
     ? localeMap[i18n.language as keyof typeof localeMap]
     : enUS;
-  // const locale = localeMap[i18n.language] || enUS;
+
   const [formData, setFormData] = useState<Omit<Transaction, "id">>({
     date: new Date().toISOString().split("T")[0],
     type: "expense",
@@ -110,7 +107,7 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
       amount: 0,
       description: "",
     });
-     setAmount(""); // 입력창 비우기!
+    setAmount(""); // 입력창 비우기!
   };
 
   return (
@@ -143,23 +140,6 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             }
             wrapperClassName="w-full"
           />
-
-          {/* <DatePicker
-            selected={formData.date ? new Date(formData.date) : null}
-            onChange={(date: Date | null) =>
-              setFormData({
-                ...formData,
-                date: date ? date.toISOString().split("T")[0] : "",
-              })
-            }
-            dateFormat="yyyy-MM-dd"
-            locale={locale}
-            todayButton={t("today")}
-            placeholderText={t("select_date")}
-            customInput={
-              <CustomInput className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
-            }
-          /> */}
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700">
@@ -198,7 +178,7 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             {t("amount")}
           </label>
           <input
-            type="text" // number가 아니라 text로!
+            type="text"
             inputMode="numeric"
             pattern="[0-9]*"
             value={amount}
@@ -215,15 +195,6 @@ export default function TransactionForm({ onSubmit }: TransactionFormProps) {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3"
             placeholder={t("amount_placeholder")}
           />
-          {/* <input
-            type="number"
-            value={formData.amount}
-            onChange={(e) =>
-              setFormData({ ...formData, amount: Number(e.target.value) })
-            }
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3"
-            placeholder={t("amount_placeholder")}
-          /> */}
         </div>
         <div className="md:col-span-2">
           <label className="block text-sm font-medium text-gray-700">

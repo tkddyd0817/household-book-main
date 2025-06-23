@@ -1,4 +1,3 @@
-//언어변환 적용완료
 import React from "react";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
@@ -216,21 +215,15 @@ export default function TransactionItem({
         <div>
           <p className="font-medium">{transaction.category}</p>
           <p className="text-sm text-gray-500">{formattedDate}</p>
-          {/* <p className="text-sm text-gray-500">
-            {new Date(transaction.date).toLocaleDateString(currentLocale)}
-          </p> */}
           <p className="text-sm text-gray-600">{transaction.description}</p>
         </div>
         <div className="flex items-center gap-2">
-          <p
-            className={`font-bold ${
-              transaction.type === "income" ? "text-green-600" : "text-red-600"
-            }`}
-          >
-            {transaction.type === "income" ? "+" : "-"}
-            {formattedAmount} {t("currency_unit")}
-            {/* {transaction.amount.toLocaleString(currentLocale)} {t("currency_unit")} */}
-          </p>
+          <span
+    className={`font-bold ${transaction.type === "income" ? "text-green-600" : "text-red-600"} whitespace-nowrap flex-shrink-0`}
+  >
+    {transaction.type === "income" ? "+" : "-"}
+    {formattedAmount} {t("currency_unit")}
+  </span>
           <button
             onClick={() => setIsEditing(true)}
             className="text-blue-500 hover:text-blue-700 text-sm p-1"

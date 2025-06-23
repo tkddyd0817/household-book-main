@@ -1,5 +1,3 @@
-// // 언어 변환 적용완료 완성본
-
 import React from "react";
 import DatePicker from "react-datepicker";
 import { useTranslation } from "next-i18next";
@@ -63,7 +61,6 @@ const CustomInput = React.forwardRef<
         ...style,
         paddingRight: "2.5rem", // 아이콘 공간 확보
         cursor: "pointer",
-        // backgroundColor: "white", // 이 줄을 삭제!
       }}
       {...props}
     />
@@ -93,7 +90,7 @@ export default function DateFilter({
 }: DateFilterProps) {
   const { t, i18n } = useTranslation("common");
   const selectedDate = new Date(year, month - 1);
-  // const locale = localeMap[i18n.language] || enUS;
+ 
   const locale =
   Object.prototype.hasOwnProperty.call(localeMap, i18n.language)
     ? localeMap[i18n.language as keyof typeof localeMap]
@@ -117,7 +114,6 @@ export default function DateFilter({
         locale={locale}
         todayButton={t("this_month")}
         customInput={
-          // <CustomInput className="block w-full rounded-md border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3" />
           <CustomInput className="block w-full rounded border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 pl-3 px-2 py-0.5" />
         }
       />

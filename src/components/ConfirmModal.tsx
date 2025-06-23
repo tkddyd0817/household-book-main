@@ -1,4 +1,3 @@
-//언어변환 적용완료
 "use client";
 
 import React from "react";

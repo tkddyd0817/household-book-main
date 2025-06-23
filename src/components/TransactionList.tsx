@@ -1,4 +1,3 @@
-//언어변환 적용완료
 import { useTranslation } from "next-i18next";
 import TransactionItem from "./TransactionItem";
 import { TransactionListProps } from "@/types/TransactionTypes";

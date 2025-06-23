@@ -8,7 +8,7 @@ import {
 } from "@/features/finance/financeSlice";
 import { RootState } from "@/store/store";
 import BalanceCard from "@/components/BalanceCard";
-// import DataManager from "@/components/DataManager";
+import DataManager from "@/components/DataManager";
 import TransactionForm from "@/components/TransactionForm";
 import TransactionList from "@/components/TransactionList";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -27,7 +27,7 @@ export default function Home() {
   const { transactions, balance } = useSelector(
     (state: RootState) => state.finance
   );
-  const [loading, setLoading] = useState(true); // 1. loading 상태 추가
+  const [loading, setLoading] = useState(true); 
 
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth() + 1);
@@ -98,7 +98,7 @@ export default function Home() {
           income={totalIncome}
           expense={totalExpense}
         />
-        {/* <DataManager transactions={transactions} balance={balance} /> */}
+        <DataManager transactions={transactions} balance={balance} />
         <TransactionForm onSubmit={handleAddTransaction} />
         <TransactionList
           transactions={filteredTransactions}
