@@ -1,4 +1,3 @@
-// //모바일,데스크탑 화면에서 차트.범례 크기까지 위치까지 완료한 버전
 import { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";

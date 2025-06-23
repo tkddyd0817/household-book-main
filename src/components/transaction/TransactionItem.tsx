@@ -16,71 +16,6 @@ const localeMap = {
   es,
 };
 
-// const CustomInput = React.forwardRef<
-//   HTMLInputElement,
-//   React.InputHTMLAttributes<HTMLInputElement>
-// >(({ value, onClick, onChange, className, style, ...props }, ref) => (
-//   <div style={{ position: "relative", width: "100%" }}>
-//     <input
-//       type="text"
-//       value={value}
-//       onClick={onClick}
-//       onChange={onChange}
-//       ref={ref}
-//       className={className}
-//       readOnly
-//       style={{
-//         ...style,
-//         paddingRight: "2.5rem",
-//         cursor: "pointer",
-//       }}
-//       {...props}
-//     />
-//     <span
-//       style={{
-//         position: "absolute",
-//         right: "0.75rem",
-//         top: "50%",
-//         transform: "translateY(-50%)",
-//         cursor: "pointer",
-//         display: "flex",
-//         alignItems: "center",
-//         height: "100%",
-//       }}
-//       onClick={onClick}
-//       tabIndex={-1}
-//     >
-//       {/* 캘린더 아이콘 */}
-//       <svg
-//         width="22"
-//         height="22"
-//         fill="none"
-//         viewBox="0 0 24 24"
-//         stroke="currentColor"
-//       >
-//         <rect
-//           x="3"
-//           y="5"
-//           width="18"
-//           height="16"
-//           rx="2"
-//           fill="#fff"
-//           stroke="#111"
-//           strokeWidth="2"
-//         />
-//         <path
-//           d="M16 3v4M8 3v4"
-//           stroke="#111"
-//           strokeWidth="2"
-//           strokeLinecap="round"
-//         />
-//         <path d="M3 9h18" stroke="#111" strokeWidth="2" />
-//       </svg>
-//     </span>
-//   </div>
-// ));
-// CustomInput.displayName = "CustomInput";
-
 export default function TransactionItem({
   transaction,
   onEdit,
@@ -139,9 +74,6 @@ export default function TransactionItem({
             locale={locale}
             todayButton={t("today")}
             placeholderText={t("select_date")}
-            // customInput={
-            //   <CustomInput className="border rounded px-2 py-0.5 w-full" />
-            // }
             customInput={
               <CustomDateInput className="border rounded px-2 py-0.5 w-full" />
             }
@@ -251,13 +183,6 @@ export default function TransactionItem({
             onConfirmAction={handleConfirmDelete}
             onCancelAction={handleCancelDelete}
           />
-          {/* <ConfirmModal
-            open={showModal}
-            title={t("delete")}
-            message={t("delete_confirm")}
-            onConfirm={handleConfirmDelete}
-            onCancel={handleCancelDelete}
-          /> */}
         </div>
       </div>
     </div>

@@ -8,8 +8,6 @@ export default function ConfirmModal({
   open,
   title = "확인",
   message,
-  // onConfirm,
-  // onCancel,
   onConfirmAction,
   onCancelAction,
 }: ConfirmModalProps) {
@@ -24,14 +22,12 @@ export default function ConfirmModal({
         <div className="flex justify-end gap-2">
           <button
             onClick={onCancelAction}
-            // onClick={onCancel}
             className="px-4 py-2 rounded bg-green-600  text-white hover:bg-gray-400"
           >
             {t("cancel")}
           </button>
           <button
             onClick={onConfirmAction}
-            // onClick={onConfirm}
             className="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700"
           >
             {t("delete")}
