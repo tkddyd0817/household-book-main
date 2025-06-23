@@ -1,63 +1,64 @@
 가계부 프로젝트
 
+```
 📁 파일 구조
 household-book-main/
 └─ household-book-main/
-├─ public/
-│ └─ locales/
-│ ├─ ko/
-│ ├─ en/
-│ ├─ ja/
-│ ├─ fr/
-│ └─ es/
-├─ src/
-│ ├─ app/
-│ │ ├─ [locale]/
-│ │ │ ├─ layout.tsx
-│ │ │ └─ page.tsx
-│ │ ├─ intro/
-│ │ │ ├─ AnimatedEmojiIntro.tsx
-│ │ │ └─ MoneyChargeBar.tsx
-│ │ ├─ globals.css
-│ │ ├─ layout.tsx
-│ │ └─ page.tsx
-│ ├─ components/
-│ │ ├─ BalanceCard.tsx
-│ │ ├─ chart/
-│ │ │ └─ PieChart.tsx
-│ │ ├─ common/
-│ │ │ ├─ ConfirmModal.tsx
-│ │ │ ├─ CustomDateInput.tsx
-│ │ │ └─ LanguageSelector.tsx
-│ │ ├─ data/
-│ │ │ ├─ DataManager.tsx
-│ │ │ └─ DateFilter.tsx
-│ │ ├─ icons/
-│ │ │ └─ CalendarIcon.tsx
-│ │ ├─ Skeleton/
-│ │ │ ├─ HomeSkeleton.tsx
-│ │ │ └─ SkeletonBox.tsx
-│ │ ├─ transaction/
-│ │ │ ├─ TransactionForm.tsx
-│ │ │ ├─ TransactionItem.tsx
-│ │ │ └─ TransactionList.tsx
-│ │ └─ Home.tsx
-│ ├─ features/
-│ │ └─ finance/
-│ │ └─ financeSlice.ts
-│ ├─ store/
-│ │ └─ store.ts
-│ ├─ types/
-│ │ ├─ BalanceCardTypes.ts
-│ │ ├─ ConfirmModalTypes.ts
-│ │ ├─ DataManagerTypes.ts
-│ │ ├─ DateFilterTypes.ts
-│ │ ├─ PieChartTypes.ts
-│ │ └─ TransactionTypes.ts
-│ └─ i18n.ts
-├─ package.json
-├─ README.md
-└─ tsconfig.json
+   ├─ public/
+   │  └─ locales/
+   │     ├─ ko/
+   │     ├─ en/
+   │     ├─ ja/
+   │     ├─ fr/
+   │     └─ es/
+   ├─ src/
+   │  ├─ app/
+   │  │  ├─ [locale]/
+   │  │  │  ├─ layout.tsx
+   │  │  │  └─ page.tsx
+   │  │  ├─ intro/
+   │  │  │  ├─ AnimatedEmojiIntro.tsx
+   │  │  │  └─ MoneyChargeBar.tsx
+   │  │  ├─ globals.css
+   │  │  ├─ layout.tsx
+   │  │  └─ page.tsx
+   │  ├─ components/
+   │  │  ├─ BalanceCard.tsx
+   │  │  ├─ chart/
+   │  │  │  └─ PieChart.tsx
+   │  │  ├─ common/
+   │  │  │  ├─ ConfirmModal.tsx
+   │  │  │  ├─ CustomDateInput.tsx
+   │  │  │  └─ LanguageSelector.tsx
+   │  │  ├─ data/
+   │  │  │  ├─ DataManager.tsx
+   │  │  │  └─ DateFilter.tsx
+   │  │  ├─ icons/
+   │  │  │  └─ CalendarIcon.tsx
+   │  │  ├─ Skeleton/
+   │  │  │  ├─ HomeSkeleton.tsx
+   │  │  │  └─ SkeletonBox.tsx
+   │  │  ├─ transaction/
+   │  │  │  ├─ TransactionForm.tsx
+   │  │  │  ├─ TransactionItem.tsx
+   │  │  │  └─ TransactionList.tsx
+   │  │  └─ Home.tsx
+   │  ├─ features/
+   │  │  └─ finance/
+   │  │     └─ financeSlice.ts
+   │  ├─ store/
+   │  │  └─ store.ts
+   │  ├─ types/
+   │  │  ├─ BalanceCardTypes.ts
+   │  │  ├─ ConfirmModalTypes.ts
+   │  │  ├─ DataManagerTypes.ts
+   │  │  ├─ DateFilterTypes.ts
+   │  │  ├─ PieChartTypes.ts
+   │  │  └─ TransactionTypes.ts
+   │  └─ i18n.ts
+   ├─ package.json
+   ├─ README.md
+   └─ tsconfig.json
 
 🛠️ 사용 라이브러리 및 기술 스택
 Next.js: React 기반 프레임워크, app 디렉토리 구조 사용
@@ -152,3 +153,4 @@ npm run dev
     - Tailwind 반응형 레이아웃에서 모바일/데스크탑 UI 깨짐 현상
     - react-datepicker의 다국어 날짜 포맷 적용 오류
     - chart.js 파이차트에서 데이터 라벨이 겹치는 문제 해결
+```
